@@ -16,8 +16,14 @@ const app = express();
 
 // Set up CORS
 app.use(cors({
-    origin: "*",
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    // Allow your deployed frontend AND your local development environment
+    origin: [
+        "https://frotent-phrms-oqi2.vercel.app", 
+        "http://localhost:3000", 
+        "http://localhost:5173",
+        "*"
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "HEAD"],
     credentials: true
 }));
 
